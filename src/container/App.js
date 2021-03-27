@@ -4,9 +4,11 @@ import Navbar from '../components/CustomNavbar/CustomNavbar';
 import React, { useState, useEffect } from 'react';
 import PokemonContext from '../context/pokemon_context';
 import axios from 'axios';
+
 const App = () => {
   const [state,setState] = useState({id:1});
   const [pokemon,setPokemon] = useState("");
+  const [genderStats,setGenderStats] = useState("");
   const value={state,setState};
 
     useEffect(() => {
@@ -20,6 +22,17 @@ const App = () => {
         })
     },[state.id])
 
+    useEffect(() => {
+      axios.get('https://pokeapi.co/api/v2/pokemon-species/'+state.id.toString())
+      .then((res) => {
+        const genderStats = res.data;
+        setGenderStats(genderStats.gender_rate);
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+    },[state.id])
+
     const handlePokemonIdChange = (event) => {
             setState({id:event.target.value});
     }
@@ -30,7 +43,8 @@ const App = () => {
         <Navbar 
           changeInput={handlePokemonIdChange}/>
         <Pokemons 
-          pokemon={pokemon}/>
+          pokemon={pokemon}
+          genderStats={genderStats}/>
       </PokemonContext.Provider>
     </div>
   );

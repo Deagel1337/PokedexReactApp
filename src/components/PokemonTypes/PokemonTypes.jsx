@@ -53,7 +53,9 @@ const PokemonTypes = (props) => {
     
     return(
         <Aux>
-            <Image src={getPokemonType()} />
+            <Image 
+                src={getPokemonType()}
+                style={{marginRight:"10px"}} />
         </Aux>
     );
 }

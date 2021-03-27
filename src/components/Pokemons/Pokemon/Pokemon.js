@@ -1,13 +1,17 @@
 import React from 'react';
-import {Image} from 'react-bootstrap';
+import {Image,Card} from 'react-bootstrap';
 import PokemonTypes from '../../PokemonTypes/PokemonTypes';
 const pokemon = (props) => {
 
     const decideImage = () => {
         if(props.sprite === "")
-            return < Image width="96" height="96"/>;
+            return < Image width="200px" height="200px"/>;
         else
-            return <Image src={props.sprite} />;
+            return <Image 
+                    src={props.sprite} 
+                    width="200px" 
+                    height="200px"
+                    style={{margin:"0",alignContent:"center"}}/>;
     
     }
     
@@ -15,7 +19,9 @@ const pokemon = (props) => {
             if(props.types !== undefined)
             {
                 return props.types.map((type) => {
-                    return <PokemonTypes type={type.type.name} key={type.type.name}/>
+                    return <PokemonTypes 
+                                type={type.type.name} 
+                                key={type.type.name}/>
                 })
             }
             else
@@ -25,9 +31,17 @@ const pokemon = (props) => {
     }
     return(
         <React.Fragment>
-            <h2>It's {props.name !== undefined ? props.name : "nothing selected"}</h2>
-            {decideImage()}
-            {createTypes()}
+            <Card>    
+                <Card.Body>
+                    <Card.Title style={{fontSize:"50px"}}>
+                        {props.name !== undefined ? props.name : "nothing selected"}
+                    </Card.Title>
+                    {decideImage()}
+                    <Card.Subtitle>
+                        {createTypes()}
+                    </Card.Subtitle>
+                </Card.Body>
+            </Card>
         </React.Fragment>);
     
 }

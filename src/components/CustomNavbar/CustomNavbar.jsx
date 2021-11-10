@@ -4,16 +4,16 @@ import PokemonContext from '../../context/pokemon_context';
 // React Bootstrap Components
 import {Navbar, Form} from 'react-bootstrap';
 
+
 const CustomNavbar = (props) => {
     const value = useContext(PokemonContext);
     
     return (
     <Aux>
-        <Navbar>
-            <Navbar.Brand> Pokemon Info Site</Navbar.Brand>
+        <Navbar bg="dark">
+            <Navbar.Brand style={{color:"#17a2b8"}}> Pokemon Info Site</Navbar.Brand>
             <Navbar.Toggle/>
             <Navbar.Collapse>
-
             </Navbar.Collapse>
             <Form inline>
                 <input 

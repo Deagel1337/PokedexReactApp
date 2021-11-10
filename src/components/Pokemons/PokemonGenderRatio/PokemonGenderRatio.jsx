@@ -33,20 +33,26 @@ const PokemonGenderRatio = (props) =>{
     const data = createPie(props.data);
   
     return (
-      <svg width={props.width} height={props.height}>
-        <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
-          {data.map((d, i) => (
-            <Arc
-              key={i}
-              data={d}
-              index={i}
-              createArc={createArc}
-              colors={colors}
-              format={format}
-            />
-          ))}
-        </g>
-      </svg>
+      <div style={{marginTop:"10px",height:"100%",paddingTop:"10px",backgroundColor:"#343a40"}}>
+        <h1>Pokemon Gender Ratio</h1>
+        <svg 
+        width={props.width} 
+        height={props.height}>
+          <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
+            {data.map((d, i) => (
+              <Arc
+                key={i}
+                data={d}
+                index={i}
+                createArc={createArc}
+                colors={colors}
+                format={format}
+              />
+            ))}
+          </g>
+        </svg>
+        <p>Orange: male, Blue: female</p>
+      </div>
     );
 }
 

@@ -31,7 +31,9 @@ const pokemon = (props) => {
     }
     return(
         <React.Fragment>
-            <Card>    
+            <Card
+            style={{backgroundColor:"#343a40"}}
+            text="info">    
                 <Card.Body>
                     <Card.Title style={{fontSize:"50px"}}>
                         {props.name !== undefined ? props.name : "nothing selected"}

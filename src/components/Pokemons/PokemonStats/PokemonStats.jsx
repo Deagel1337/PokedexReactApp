@@ -10,7 +10,7 @@ const PokemonStats = (props) => {
         for(let i = 0; i < statsLength;i++)
         {
             categories.push(
-            <tr key={i}>
+            <tr key={i} style={{color:"#17a2b8"}}>
                 <td key={props.stats[i].stat.name}>
                     {props.stats[i].stat.name}
                 </td>
@@ -30,13 +30,15 @@ const PokemonStats = (props) => {
     }
 
     return(
-        <React.Fragment>
-            <Table bordered>
+        <div style={{marginTop:"10px",backgroundColor:"#343a40"}}>
+            <Table bordered 
+                   variant="dark"
+                   style={{marginTop:"10px",color:"#17a2b8"}}>
                 <tbody>
                     {tableContent()}
                 </tbody>
             </Table>
-        </React.Fragment>
+        </div>
     );
 }
 

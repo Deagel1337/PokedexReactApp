@@ -36,9 +36,15 @@ const App = () => {
     const handlePokemonIdChange = (event) => {
             setState({id:event.target.value});
     }
+    const handlePokemonSearchClick = (event) => {
 
+    }
+    useEffect(() => {
+      document.body.style.backgroundColor = "#4a5364";
+    },[]);
   return (
-    <div className="App">
+    <div className="App"
+         style={{color:"#17a2b8"}}>
       <PokemonContext.Provider value={value}>
         <Navbar 
           changeInput={handlePokemonIdChange}/>

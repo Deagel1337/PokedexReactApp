@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Pokemon from './Pokemon/Pokemon';
 import PokemonStats from './PokemonStats/PokemonStats';
 import PokemonGenderRatio from './PokemonGenderRatio/PokemonGenderRatio';
-
 // React bootstrap components
+
 //TO-Do Entwicklungen
 
 import {Container,Row,Col} from 'react-bootstrap';
@@ -33,7 +33,7 @@ const Pokemons = (props) => {
     },[props,calculateGenderRatio])
 
     return(
-        <Container>
+        <Container style={{marginTop:"5px"}}>
             <Row>
                 <Col>
                     <Pokemon 
@@ -47,13 +47,13 @@ const Pokemons = (props) => {
                 <Col>
                     <PokemonStats stats={props.pokemon.stats}/>
                 </Col>
-                <Col>
-                    <PokemonGenderRatio 
-                        width="200"
-                        height="200"
-                        innerRadius={60}
-                        outerRadius={100}
-                        data={genderRatio} />
+                <Col> 
+                        <PokemonGenderRatio 
+                            width="200"
+                            height="200"
+                            innerRadius={60}
+                            outerRadius={100}
+                            data={genderRatio}/>
                 </Col>
             </Row>
         </Container>
